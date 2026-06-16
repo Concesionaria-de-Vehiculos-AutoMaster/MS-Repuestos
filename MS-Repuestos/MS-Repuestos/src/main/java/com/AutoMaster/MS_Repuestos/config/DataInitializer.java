@@ -7,6 +7,16 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
+import java.util.Arrays;
+import java.util.List;
+
+// Asegúrate de importar tu entidad y tu repositorio, por ejemplo:
+// import com.automaster.msrepuestos.model.Repuesto;
+// import com.automaster.msrepuestos.repository.RepuestoRepository;
 
 @Component
 @RequiredArgsConstructor // <-- Agregamos esta anotación (Estándar de tu compañero)
@@ -43,6 +53,7 @@ public class DataInitializer implements CommandLineRunner {
             repuesto3.setStock(100);
 
             // Los guardamos todos de golpe en la base de datos
+            // Arrays.asList ahora funcionará porque importamos java.util.Arrays y java.util.List
             List<Repuesto> repuestosIniciales = Arrays.asList(repuesto1, repuesto2, repuesto3);
             repuestoRepository.saveAll(repuestosIniciales);
 
